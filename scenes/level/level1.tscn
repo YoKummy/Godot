@@ -615,7 +615,7 @@ layer_0/tile_data = PackedInt32Array(917504, 65536, 2, 917505, 65536, 2, 917506,
 
 [node name="player" parent="." instance=ExtResource("4_uvcaf")]
 unique_name_in_owner = true
-position = Vector2(163, 499)
+position = Vector2(5932, -2470)
 
 [node name="Timer" type="Timer" parent="player"]
 wait_time = 0.2
@@ -717,12 +717,61 @@ position = Vector2(6212, -266)
 
 [node name="checkpoint group" type="Node" parent="."]
 
-[node name="startPosition" parent="checkpoint group" instance=ExtResource("15_xlkjs")]
+[node name="start_position" parent="checkpoint group" instance=ExtResource("15_xlkjs")]
 unique_name_in_owner = true
+position = Vector2(169, 498)
 
-[node name="endPosition" parent="checkpoint group" instance=ExtResource("15_xlkjs")]
+[node name="checkpoint2" parent="checkpoint group" instance=ExtResource("15_xlkjs")]
 unique_name_in_owner = true
-position = Vector2(2129, -5247)
+position = Vector2(2790, 184)
+
+[node name="checkpoint3" parent="checkpoint group" instance=ExtResource("15_xlkjs")]
+unique_name_in_owner = true
+position = Vector2(3000, -445)
+
+[node name="checkpoint4" parent="checkpoint group" instance=ExtResource("15_xlkjs")]
+unique_name_in_owner = true
+position = Vector2(4846, -690)
+
+[node name="checkpoint5" parent="checkpoint group" instance=ExtResource("15_xlkjs")]
+unique_name_in_owner = true
+position = Vector2(6117, -1249)
+
+[node name="checkpoint6" parent="checkpoint group" instance=ExtResource("15_xlkjs")]
+unique_name_in_owner = true
+position = Vector2(4454, -1402)
+
+[node name="checkpoint7" parent="checkpoint group" instance=ExtResource("15_xlkjs")]
+unique_name_in_owner = true
+position = Vector2(2998, -1605)
+
+[node name="checkpoint8" parent="checkpoint group" instance=ExtResource("15_xlkjs")]
+unique_name_in_owner = true
+position = Vector2(4081, -1897)
+
+[node name="checkpoint9" parent="checkpoint group" instance=ExtResource("15_xlkjs")]
+unique_name_in_owner = true
+position = Vector2(5996, -2429)
+
+[node name="checkpoint10" parent="checkpoint group" instance=ExtResource("15_xlkjs")]
+unique_name_in_owner = true
+position = Vector2(4670, -3282)
+
+[node name="checkpoint11" parent="checkpoint group" instance=ExtResource("15_xlkjs")]
+unique_name_in_owner = true
+position = Vector2(3193, -3116)
+
+[node name="checkpoint12" parent="checkpoint group" instance=ExtResource("15_xlkjs")]
+unique_name_in_owner = true
+position = Vector2(1118, -3415)
+
+[node name="checkpoint13" parent="checkpoint group" instance=ExtResource("15_xlkjs")]
+unique_name_in_owner = true
+position = Vector2(3237, -3824)
+
+[node name="end_position" parent="checkpoint group" instance=ExtResource("15_xlkjs")]
+unique_name_in_owner = true
+position = Vector2(2139, -5114)
 
 [node name="UI" type="CanvasLayer" parent="."]
 

@@ -9,7 +9,7 @@ const JUMP_FORCE = -1900.0  # Force applied while the jump key is held
 const JUMP_INITIAL_FORCE = -600.0  # Initial force applied when jump starts
 
 @onready var sprite_2d = $Sprite2D
-@onready var bounce_timer = $BounceTimer  # Reference to a Timer node
+@onready var timer = $Timer
 @onready var game_manager = %GameManager
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")

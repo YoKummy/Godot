@@ -4,9 +4,13 @@ extends Node
 @onready var jumps_label = %JumpsLabel
 @onready var bumps_label = %BumpsLabel
 @onready var percentage_label = %PercentageLabel
-@onready var start_position = %startPosition
-@onready var end_position = %endPosition
+@onready var waypoints = [%checkpoint2, %checkpoint3, %checkpoint4
+, %checkpoint5, %checkpoint6, %checkpoint7, %checkpoint8, %checkpoint9, %checkpoint10, %checkpoint11, %checkpoint12
+, %checkpoint13]
 @onready var player = %player
+@onready var start_position = %start_position
+@onready var end_position = %end_position
+
 
 
 var points = 0
@@ -16,7 +20,7 @@ var time = 0.0
 var total_distance = 0
 
 func _ready():
-	total_distance = start_position.global_position.distance_to(end_position.global_position)
+	calculate_total_distance()
 
 func _physics_process(delta):
 	time = float(time) + delta
@@ -41,8 +45,31 @@ func update_time():
 	var hour = int(time) / 3600
 	time_label.text = "Time: " + str(hour) + ":" + str(min) + ":" + str(sec)
 
+func calculate_total_distance():
+	total_distance = 0
+	var previous_position = start_position.global_position
+	for waypoint in waypoints:
+		total_distance += previous_position.distance_to(waypoint.global_position)
+		previous_position = waypoint.global_position
+	total_distance += previous_position.distance_to(end_position.global_position)
+
 func update_percentage():
-	var current_distance = start_position.global_position.distance_to(player.global_position)
+	var current_distance = calculate_current_distance()
 	var progress = (current_distance / total_distance) * 100
 	progress = clamp(progress, 0, 100)
 	percentage_label.text = "Percentage: " + str("%.2f" % float(progress)) + "%"
+
+func calculate_current_distance():
+	var current_distance = 0
+	var previous_position = start_position.global_position
+
+	for waypoint in waypoints:
+		if player.global_position.distance_to(previous_position) < waypoint.global_position.distance_to(previous_position):
+			current_distance += previous_position.distance_to(player.global_position)
+			return current_distance
+		else:
+			current_distance += previous_position.distance_to(waypoint.global_position)
+			previous_position = waypoint.global_position
+
+	current_distance += previous_position.distance_to(player.global_position)
+	return current_distance
