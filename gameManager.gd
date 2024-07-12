@@ -45,4 +45,4 @@ func update_percentage():
 	var current_distance = start_position.global_position.distance_to(player.global_position)
 	var progress = (current_distance / total_distance) * 100
 	progress = clamp(progress, 0, 100)
-	percentage_label.text = str(float(progress)) + "%"
+	percentage_label.text = "Percentage: " + str("%.2f" % float(progress)) + "%"
