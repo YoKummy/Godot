@@ -21,7 +21,7 @@ var multiplier = 1.0
 func set_speed():
 	$Timer.start()  # Start the bounce timer
 	multiplier = BOUNCE_SPEED / MAX_BOUNCE_TIME  # Calculate the speed multiplier
-	velocity.y = JUMP_INITIAL_FORCE * 1.5
+	velocity.y = JUMP_FORCE * 0.8
 	
 func reset_speed():
 	velocity.y = JUMP_INITIAL_FORCE
