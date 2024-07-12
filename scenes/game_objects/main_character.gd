@@ -5,11 +5,12 @@ const SLOW_SPEED = 150.0
 const BOUNCE_SPEED = 0.15
 const MAX_JUMP_TIME = 0.3  # Maximum time the jump force is applied
 const MAX_BOUNCE_TIME = 0.1  # Maximum time for the bounce effect
-const JUMP_FORCE = -1600.0  # Force applied while the jump key is held
+const JUMP_FORCE = -1900.0  # Force applied while the jump key is held
 const JUMP_INITIAL_FORCE = -600.0  # Initial force applied when jump starts
 
 @onready var sprite_2d = $Sprite2D
 @onready var bounce_timer = $BounceTimer  # Reference to a Timer node
+@onready var game_manager = %GameManager
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var direction = 1
@@ -49,6 +50,7 @@ func _physics_process(delta):
 		is_jumping = true
 		jump_time = 0.0
 		velocity.y = JUMP_INITIAL_FORCE
+		game_manager.add_jumps()
 
 	current_speed = SPEED
 	if Input.is_action_pressed("slow"):
@@ -78,6 +80,7 @@ func _physics_process(delta):
 	# Check for wall collisions and change direction if needed
 	if is_on_wall():
 		direction *= -1
+		game_manager.add_bumps()
 		
 	var isLeft = direction < 0
 	sprite_2d.flip_h = isLeft
