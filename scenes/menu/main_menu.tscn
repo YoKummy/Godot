@@ -1,0 +1,92 @@
+[gd_scene load_steps=6 format=3 uid="uid://chu5y2qt0oe34"]
+
+[ext_resource type="Texture2D" uid="uid://kviht7q3jl3" path="res://asset/background/Green.png" id="1_bb6o6"]
+[ext_resource type="Script" path="res://scenes/menu/main_menu.gd" id="1_ocloy"]
+[ext_resource type="Texture2D" uid="uid://b77qwac4te63l" path="res://asset/game_elements/975afd831a65619d13c20498dbbb4263.png" id="2_4ijbl"]
+[ext_resource type="Texture2D" uid="uid://wyjvbw8y0uaa" path="res://asset/menu/01.png" id="4_7d1rb"]
+[ext_resource type="Texture2D" uid="uid://cli7sf36wbhcg" path="res://asset/menu/Close.png" id="5_o1f6a"]
+
+[node name="MainMenu" type="Node"]
+script = ExtResource("1_ocloy")
+
+[node name="Background" type="TextureRect" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_bb6o6")
+stretch_mode = 1
+
+[node name="MenuText" type="TextureRect" parent="."]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -386.0
+offset_top = -188.0
+offset_right = 386.0
+offset_bottom = -115.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_4ijbl")
+
+[node name="level1" type="Button" parent="."]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -134.0
+offset_top = -23.0
+offset_right = 151.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Level 1"
+
+[node name="quit" type="Button" parent="."]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -133.0
+offset_top = 200.0
+offset_right = 152.0
+offset_bottom = 244.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit"
+
+[node name="buttonSticker1" type="TextureRect" parent="."]
+texture_filter = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -131.0
+offset_top = 303.0
+offset_right = -92.0
+offset_bottom = 342.0
+grow_horizontal = 2
+texture = ExtResource("4_7d1rb")
+
+[node name="buttonSticker2" type="TextureRect" parent="."]
+texture_filter = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -130.0
+offset_top = 525.0
+offset_right = -91.0
+offset_bottom = 564.0
+grow_horizontal = 2
+texture = ExtResource("5_o1f6a")
+
+[connection signal="pressed" from="level1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
