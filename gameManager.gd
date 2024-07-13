@@ -6,7 +6,7 @@ extends Node
 @onready var percentage_label = %PercentageLabel
 @onready var waypoints = [%checkpoint2, %checkpoint3, %checkpoint4
 , %checkpoint5, %checkpoint6, %checkpoint7, %checkpoint8, %checkpoint9, %checkpoint10, %checkpoint11, %checkpoint12
-, %checkpoint13]
+, %checkpoint13, %checkpoint14, %checkpoint15, %checkpoint16, %checkpoint17, %checkpoint18, %checkpoint19, %checkpoint20]
 @onready var player = %player
 @onready var start_position = %start_position
 @onready var end_position = %end_position

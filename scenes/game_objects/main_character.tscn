@@ -229,4 +229,4 @@ shape = SubResource("RectangleShape2D_x6e4r")
 position = Vector2(1, 2)
 scale = Vector2(0.3, 0.3)
 position_smoothing_enabled = true
-position_smoothing_speed = 6.0
+position_smoothing_speed = 15.0

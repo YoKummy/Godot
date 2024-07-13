@@ -9,8 +9,9 @@ const JUMP_FORCE = -1900.0  # Force applied while the jump key is held
 const JUMP_INITIAL_FORCE = -600.0  # Initial force applied when jump starts
 
 @onready var sprite_2d = $Sprite2D
-@onready var timer = $Timer
 @onready var game_manager = %GameManager
+@onready var bounce_timer = $BounceTimer
+@onready var boost_timer = $BoostTimer
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var direction = 1
@@ -18,15 +19,21 @@ var jump_time = 0.0
 var is_jumping = false
 var current_speed = SPEED
 var multiplier = 1.0
+var jumpMulti = 1.0
 
-func set_speed():
-	$Timer.start()  # Start the bounce timer
-	multiplier = BOUNCE_SPEED / MAX_BOUNCE_TIME  # Calculate the speed multiplier
-	velocity.y = JUMP_FORCE * 0.8
+func jump_speed():
+	$BounceTimer.start()  # Start the bounce timer
+	multiplier = 1.5
+	velocity.y = JUMP_FORCE * 0.6
+	
+func boost_speed():
+	$BoostTimer.start()
+	multiplier = 2.5
+	jumpMulti = 1.5
 	
 func reset_speed():
-	velocity.y = JUMP_INITIAL_FORCE
 	multiplier = 1.0  # Reset the multiplier to normal
+	jumpMulti = 1.0
 
 func _physics_process(delta):
 	# Add running animation
@@ -49,7 +56,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		is_jumping = true
 		jump_time = 0.0
-		velocity.y = JUMP_INITIAL_FORCE
+		velocity.y = JUMP_INITIAL_FORCE * jumpMulti
 		game_manager.add_jumps()
 
 	current_speed = SPEED
@@ -85,7 +92,10 @@ func _physics_process(delta):
 	var isLeft = direction < 0
 	sprite_2d.flip_h = isLeft
 
-
-func _on_timer_timeout():
+func _on_bounce_timer_timeout():
 	reset_speed()
 	print("bounce")
+
+func _on_boost_timer_timeout():
+	reset_speed()
+	print("speed")

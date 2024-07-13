@@ -3,19 +3,19 @@
 [ext_resource type="Texture2D" uid="uid://budt13nq1io4j" path="res://asset/terrain/Terrain (16x16).png" id="1_1p2iw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ywx3a"]
-size = Vector2(46.5, 137)
+size = Vector2(46.875, 138)
 
 [node name="Bounce" type="Area2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(0, 1)
-rotation = 1.5708
+rotation = 1.57079
 scale = Vector2(3, 3)
 texture = ExtResource("1_1p2iw")
 region_enabled = true
-region_rect = Rect2(97, 128.79, 45.5396, 14.8816)
+region_rect = Rect2(96.8367, 129.026, 46.052, 14.9657)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.75, 0.5)
+position = Vector2(0.5625, 1)
 shape = SubResource("RectangleShape2D_ywx3a")
