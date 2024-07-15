@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Godot"
-run/main_scene="res://scenes/level/level1.tscn"
+run/main_scene="res://scenes/menu/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
+
+[autoload]
+
+MultiplayerManager="*res://scripts/multiplayer/multiplayer_manager.gd"
 
 [display]
 
