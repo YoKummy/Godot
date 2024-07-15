@@ -42,27 +42,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -134.0
-offset_top = -72.0
+offset_top = -23.0
 offset_right = 151.0
-offset_bottom = -28.0
+offset_bottom = 21.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Level 1"
-
-[node name="Host" type="Button" parent="."]
-texture_filter = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -134.0
-offset_top = 22.0
-offset_right = 151.0
-offset_bottom = 66.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Host"
 
 [node name="join" type="Button" parent="."]
 texture_filter = 1
@@ -72,9 +57,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -134.0
-offset_top = 107.0
+offset_top = 78.0
 offset_right = 151.0
-offset_bottom = 151.0
+offset_bottom = 122.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Join"
@@ -100,9 +85,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -131.0
-offset_top = 257.0
+offset_top = 303.0
 offset_right = -92.0
-offset_bottom = 296.0
+offset_bottom = 342.0
 grow_horizontal = 2
 texture = ExtResource("4_7d1rb")
 
@@ -119,6 +104,5 @@ grow_horizontal = 2
 texture = ExtResource("5_o1f6a")
 
 [connection signal="pressed" from="level1" to="." method="_on_level_1_pressed"]
-[connection signal="pressed" from="Host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="join" to="." method="_on_join_pressed"]
 [connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]

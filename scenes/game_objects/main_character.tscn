@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://ceclpdtulsfv5"]
+[gd_scene load_steps=34 format=3 uid="uid://ceclpdtulsfv5"]
 
 [ext_resource type="Texture2D" uid="uid://c715qb2rwgnam" path="res://asset/character/Jump (32x32).png" id="1_31mwf"]
 [ext_resource type="Script" path="res://scenes/game_objects/main_character.gd" id="1_rsvs6"]
@@ -207,6 +207,14 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x6e4r"]
 size = Vector2(25.6, 29.8)
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_y4sjg"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath("Sprite2D:flip_h")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
 [node name="CharacterBody2D" type="CharacterBody2D"]
 position = Vector2(62, -34)
 scale = Vector2(3, 3)
@@ -230,3 +238,6 @@ position = Vector2(1, 2)
 scale = Vector2(0.3, 0.3)
 position_smoothing_enabled = true
 position_smoothing_speed = 15.0
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_y4sjg")

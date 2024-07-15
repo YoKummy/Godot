@@ -21,6 +21,9 @@ var current_speed = SPEED
 var multiplier = 1.0
 var jumpMulti = 1.0
 
+func _enter_tree():
+	set_multiplayer_authority(name.to_int())
+
 func jump_speed():
 	$BounceTimer.start()  # Start the bounce timer
 	multiplier = 1.5
@@ -51,30 +54,30 @@ func _physics_process(delta):
 			sprite_2d.animation = "jumping"
 	else:
 		is_jumping = false
-
-	# Handle jump
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		is_jumping = true
-		jump_time = 0.0
-		velocity.y = JUMP_INITIAL_FORCE * jumpMulti
-		game_manager.add_jumps()
-
 	current_speed = SPEED
-	if Input.is_action_pressed("slow"):
-		current_speed = SLOW_SPEED
-
-	if is_jumping and Input.is_action_pressed("jump") and jump_time < MAX_JUMP_TIME:
-		velocity.y += JUMP_FORCE * delta
-		jump_time += delta
+	# Handle jump
+	if is_multiplayer_authority():
+		if Input.is_action_just_pressed("jump") and is_on_floor():
+			is_jumping = true
+			jump_time = 0.0
+			velocity.y = JUMP_INITIAL_FORCE * jumpMulti
+			game_manager.add_jumps()
+			
+		if Input.is_action_pressed("slow"):
+			current_speed = SLOW_SPEED
+			
+		if is_jumping and Input.is_action_pressed("jump") and jump_time < MAX_JUMP_TIME:
+			velocity.y += JUMP_FORCE * delta
+			jump_time += delta
+		
+		if Input.is_action_just_pressed("reset"):
+			position.x = 161
+			position.y = 500
+			print("reset")
 
 	if not Input.is_action_pressed("jump"):
 		is_jumping = false
 
-	if Input.is_action_just_pressed("reset"):
-		position.x = 161
-		position.y = 500
-		print("reset")
-	
 	if Input.is_action_just_pressed("change"):
 		direction *= -1
 
