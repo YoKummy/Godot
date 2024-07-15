@@ -6,14 +6,29 @@
 [ext_resource type="Texture2D" uid="uid://wyjvbw8y0uaa" path="res://asset/menu/01.png" id="4_7d1rb"]
 [ext_resource type="Texture2D" uid="uid://cli7sf36wbhcg" path="res://asset/menu/Close.png" id="5_o1f6a"]
 
-[node name="MainMenu" type="Node"]
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_ocloy")
 
 [node name="Background" type="TextureRect" parent="."]
 texture_filter = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -567.0
+offset_top = -342.5
+offset_right = 567.0
+offset_bottom = 342.5
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_bb6o6")
@@ -21,6 +36,7 @@ stretch_mode = 1
 
 [node name="MenuText" type="TextureRect" parent="."]
 texture_filter = 1
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -36,6 +52,7 @@ texture = ExtResource("2_4ijbl")
 
 [node name="level1" type="Button" parent="."]
 texture_filter = 1
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -51,6 +68,7 @@ text = "Level 1"
 
 [node name="Host" type="Button" parent="."]
 texture_filter = 1
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -66,6 +84,7 @@ text = "Host"
 
 [node name="join" type="Button" parent="."]
 texture_filter = 1
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -81,6 +100,7 @@ text = "Join"
 
 [node name="quit" type="Button" parent="."]
 texture_filter = 1
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -96,18 +116,20 @@ text = "Quit"
 
 [node name="buttonSticker1" type="TextureRect" parent="."]
 texture_filter = 1
+layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -131.0
-offset_top = 257.0
-offset_right = -92.0
-offset_bottom = 296.0
+offset_left = -210.0
+offset_top = 416.0
+offset_right = -171.0
+offset_bottom = 455.0
 grow_horizontal = 2
 texture = ExtResource("4_7d1rb")
 
 [node name="buttonSticker2" type="TextureRect" parent="."]
 texture_filter = 1
+layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -117,6 +139,21 @@ offset_right = -91.0
 offset_bottom = 564.0
 grow_horizontal = 2
 texture = ExtResource("5_o1f6a")
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 292.0
+offset_top = -25.0
+offset_right = 511.0
+offset_bottom = 6.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 300.0
+offset_top = -69.0
+offset_right = 340.0
+offset_bottom = -46.0
+text = "name"
 
 [connection signal="pressed" from="level1" to="." method="_on_level_1_pressed"]
 [connection signal="pressed" from="Host" to="." method="_on_host_pressed"]

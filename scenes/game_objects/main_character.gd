@@ -56,24 +56,24 @@ func _physics_process(delta):
 		is_jumping = false
 	current_speed = SPEED
 	# Handle jump
-	if is_multiplayer_authority():
-		if Input.is_action_just_pressed("jump") and is_on_floor():
-			is_jumping = true
-			jump_time = 0.0
-			velocity.y = JUMP_INITIAL_FORCE * jumpMulti
-			game_manager.add_jumps()
+	
+	if Input.is_action_just_pressed("jump") and is_on_floor():
+		is_jumping = true
+		jump_time = 0.0
+		velocity.y = JUMP_INITIAL_FORCE * jumpMulti
+		game_manager.add_jumps()
 			
-		if Input.is_action_pressed("slow"):
-			current_speed = SLOW_SPEED
-			
-		if is_jumping and Input.is_action_pressed("jump") and jump_time < MAX_JUMP_TIME:
-			velocity.y += JUMP_FORCE * delta
-			jump_time += delta
+	if Input.is_action_pressed("slow"):
+		current_speed = SLOW_SPEED
 		
-		if Input.is_action_just_pressed("reset"):
-			position.x = 161
-			position.y = 500
-			print("reset")
+	if is_jumping and Input.is_action_pressed("jump") and jump_time < MAX_JUMP_TIME:
+		velocity.y += JUMP_FORCE * delta
+		jump_time += delta
+		
+	if Input.is_action_just_pressed("reset"):
+		position.x = 161
+		position.y = 500
+		print("reset")
 
 	if not Input.is_action_pressed("jump"):
 		is_jumping = false

@@ -41,9 +41,9 @@ func add_bumps():
 
 func update_time():
 	var sec = int(time) % 60
-	var min = int(time) / 60
+	var mins = int(time) / 60
 	var hour = int(time) / 3600
-	time_label.text = "Time: " + str(hour) + ":" + str(min) + ":" + str(sec)
+	time_label.text = "Time: " + str(hour) + ":" + str(mins) + ":" + str(sec)
 
 func calculate_total_distance():
 	total_distance = 0

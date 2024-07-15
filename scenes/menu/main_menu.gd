@@ -18,9 +18,29 @@ func peer_disconnected(id):
 
 func connected_to_server():
 	print("Connected to server")
+	SendPlayerInformation.rpc_id(1, $LineEdit.text, multiplayer.get_unique_id())
 
 func connection_failed():
 	print("Connection failed")
+	
+@rpc("any_peer")
+func SendPlayerInformation(name, id):
+	if !MultiplayerController.Players.has(id):
+		MultiplayerController.Players[id] ={
+			"name" : name,
+			"id" : id,
+			"score" : 0
+		}
+		
+	if multiplayer.is_server():
+		for i in MultiplayerController.Players:
+			SendPlayerInformation.rpc(MultiplayerController.Players[i].name, i)
+
+@rpc("any_peer", "call_local")
+
+func StartGame():
+	var scene = load("res://scenes/level/level1.tscn").instantiate()
+	get_tree().root.add_child(scene)
 
 func _on_host_pressed():
 	
@@ -29,27 +49,22 @@ func _on_host_pressed():
 	if error != OK:
 		print("Cannot host: " + str(error))
 		return
-	
 	peer.get_host().compress(ENetConnection.COMPRESS_RANGE_CODER)
-	get_tree().multiplayer.multiplayer_peer = peer
-
+	
+	multiplayer.set_multiplayer_peer(peer)
+	SendPlayerInformation($LineEdit.text, multiplayer.get_unique_id())
 
 func _on_join_pressed():
-	get_tree().change_scene_to_file("res://scenes/level/level1.tscn")
-	print("Join")
 	
 	peer = ENetMultiplayerPeer.new()
-	var error = peer.create_client(Address, port)
-	if error != OK:
-		print("Cannot join: " + str(error))
-		return
-	
+	peer.create_client(Address, port)
 	peer.get_host().compress(ENetConnection.COMPRESS_RANGE_CODER)
-	multiplayer.multiplayer_peer = peer
+	multiplayer.set_multiplayer_peer(peer)
 
 func _on_level_1_pressed():
-	get_tree().change_scene_to_file("res://scenes/level/level1.tscn")
-	print("Host")
+	#get_tree().change_scene_to_file("res://scenes/level/level1.tscn")
+	#print("Host")
+	StartGame.rpc()
 
 func _on_quit_pressed():
 	get_tree().quit()

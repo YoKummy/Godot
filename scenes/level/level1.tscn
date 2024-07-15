@@ -13,9 +13,9 @@
 [ext_resource type="Script" path="res://scenes/pause.gd" id="7_cr6mh"]
 [ext_resource type="Script" path="res://scenes/game_objects/bounce.gd" id="7_kcodk"]
 [ext_resource type="PackedScene" uid="uid://c8s10b7w75m26" path="res://scenes/game_objects/collectable.tscn" id="7_twwe2"]
-[ext_resource type="PackedScene" uid="uid://bf4v5aisafilq" path="res://scenes/checkpoint.tscn" id="15_xlkjs"]
+[ext_resource type="PackedScene" uid="uid://bf4v5aisafilq" path="res://scenes/game_objects/checkpoint.tscn" id="15_xlkjs"]
 [ext_resource type="PackedScene" uid="uid://26dt0y46uge2" path="res://scenes/game_objects/boost.tscn" id="16_1fays"]
-[ext_resource type="Script" path="res://GameManager.gd" id="16_da2y7"]
+[ext_resource type="Script" path="res://scripts/GameManager.gd" id="16_da2y7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2odkm"]
 texture = ExtResource("2_i78ps")
@@ -1014,11 +1014,6 @@ vertical_alignment = 1
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("16_da2y7")
-
-[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
-_spawnable_scenes = PackedStringArray("res://scenes/game_objects/main_character.tscn")
-spawn_path = NodePath("..")
-spawn_limit = 4
 
 [connection signal="body_entered" from="Collectables group/collectable" to="Collectables group/collectable" method="_on_body_entered"]
 [connection signal="body_entered" from="Collectables group/collectable2" to="Collectables group/collectable2" method="_on_body_entered"]
