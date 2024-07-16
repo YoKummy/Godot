@@ -21,6 +21,9 @@ var current_speed = SPEED
 var multiplier = 1.0
 var jumpMulti = 1.0
 
+func _ready():
+	$MultiplayerSynchronizer.set_multiplayer_authority(1)
+
 func _enter_tree():
 	set_multiplayer_authority(name.to_int())
 
