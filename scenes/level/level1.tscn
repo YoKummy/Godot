@@ -824,7 +824,7 @@ position = Vector2(2291, -5336)
 
 [node name="player" parent="." instance=ExtResource("4_uvcaf")]
 unique_name_in_owner = true
-position = Vector2(162, 500)
+position = Vector2(161, 501)
 
 [node name="BounceTimer" type="Timer" parent="player"]
 wait_time = 0.2
