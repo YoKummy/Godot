@@ -17,7 +17,7 @@ run/main_scene="res://scenes/menu/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 run/max_fps=120
 config/icon="res://game/icon.png"
-config/windows_native_icon="res://game/icon 256.ico"
+config/windows_native_icon="res://game/icon 16.ico"
 
 [autoload]
 
