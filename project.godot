@@ -13,7 +13,7 @@ config_version=5
 config/name="Godot"
 run/main_scene="res://scenes/menu/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
-config/icon="res://icon.svg"
+config/icon="res://game/icon.png"
 config/windows_native_icon="res://game/icon 256.ico"
 
 [autoload]
@@ -66,6 +66,7 @@ change={
 
 [physics]
 
+common/physics_ticks_per_second=120
 2d/default_gravity=2500.0
 
 [rendering]
