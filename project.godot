@@ -14,13 +14,16 @@ config/name="Godot"
 run/main_scene="res://scenes/menu/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
+config/windows_native_icon="res://game/icon 256.ico"
 
 [autoload]
 
-MultiplayerController="*res://scripts/multiplayer/multiplayerController.gd"
+MultiplayerManager="*res://scripts/multiplayer/multiplayer_manager.gd"
+Network="*res://scenes/network.tscn"
 
 [display]
 
+window/size/mode=4
 window/stretch/mode="canvas_items"
 
 [input]

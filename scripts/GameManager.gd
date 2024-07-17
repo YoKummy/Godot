@@ -4,14 +4,12 @@ extends Node
 @onready var jumps_label = %JumpsLabel
 @onready var bumps_label = %BumpsLabel
 @onready var percentage_label = %PercentageLabel
-@onready var waypoints = [%checkpoint2, %checkpoint3, %checkpoint4
-, %checkpoint5, %checkpoint6, %checkpoint7, %checkpoint8, %checkpoint9, %checkpoint10, %checkpoint11, %checkpoint12
-, %checkpoint13, %checkpoint14, %checkpoint15, %checkpoint16, %checkpoint17, %checkpoint18, %checkpoint19, %checkpoint20]
+@onready var waypoints = [%checkpoint2, %checkpoint3, %checkpoint4, %checkpoint5, %checkpoint6, %checkpoint7, 
+%checkpoint8, %checkpoint9, %checkpoint10, %checkpoint11, %checkpoint12, %checkpoint13, %checkpoint14, 
+%checkpoint15, %checkpoint16, %checkpoint17, %checkpoint18, %checkpoint19]
 @onready var player = %player
 @onready var start_position = %start_position
 @onready var end_position = %end_position
-
-
 
 var points = 0
 var jumps = 0
@@ -52,6 +50,7 @@ func calculate_total_distance():
 		total_distance += previous_position.distance_to(waypoint.global_position)
 		previous_position = waypoint.global_position
 	total_distance += previous_position.distance_to(end_position.global_position)
+	return total_distance
 
 func update_percentage():
 	var current_distance = calculate_current_distance()

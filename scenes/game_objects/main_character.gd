@@ -21,8 +21,6 @@ var current_speed = SPEED
 var multiplier = 1.0
 var jumpMulti = 1.0
 
-func _ready():
-	$MultiplayerSynchronizer.set_multiplayer_authority(1)
 
 func _enter_tree():
 	set_multiplayer_authority(name.to_int())
@@ -81,8 +79,8 @@ func _physics_process(delta):
 	if not Input.is_action_pressed("jump"):
 		is_jumping = false
 
-	if Input.is_action_just_pressed("change"):
-		direction *= -1
+	#if Input.is_action_just_pressed("change"):
+		#direction *= -1
 
 	# Automatic movement
 	velocity.x = direction * current_speed * multiplier
