@@ -68,7 +68,6 @@ change={
 
 [physics]
 
-common/physics_ticks_per_second=120
 2d/default_gravity=2500.0
 
 [rendering]
